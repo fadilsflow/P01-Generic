@@ -2,8 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package generic;
 
+import generic.KoleksiMusik;
+import generic.Musik;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
 import java.io.File;
@@ -15,7 +16,6 @@ import javax.swing.SwingWorker;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.TableColumn;
 import javax.swing.table.TableColumnModel;
-      
 
 public class Playlist extends javax.swing.JFrame {
 
@@ -66,11 +66,6 @@ public class Playlist extends javax.swing.JFrame {
         popupTombol.add(addFolder);
 
         clearPlaylist.setText("jMenuItem1");
-        clearPlaylist.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                clearPlaylistActionPerformed(evt);
-            }
-        });
         popupTombol.add(clearPlaylist);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -158,6 +153,10 @@ public class Playlist extends javax.swing.JFrame {
             addFolder(file);
 
     }//GEN-LAST:event_addFolderActionPerformed
+    private void clearPlaylistActionPerformed(java.awt.event.ActionEvent evt) {
+        // TODO add your handling code here:
+        koleksi.clear();
+    }
 
     private void tblPlaylistMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblPlaylistMouseClicked
         // TODO add your handling code here:
@@ -178,7 +177,7 @@ public class Playlist extends javax.swing.JFrame {
                     + "<tr><td><b>Lokasi</b></td><td>:</td><td>" + m.getPath() + "</td></tr>"
                     + "<tr><td><b>Nama File</b></td><td>:</td><td>" + m.getFileName() + "</td></tr>"
                     + "<tr><td><b>Ukuran</b></td><td>:</td><td>" + m.getFileSize() + "</td></tr>"
-//                    + "<tr><td><b>Ekstensi</b></td><td>:</td><td>" + m.getExtention() + "</td></tr>"
+                    //                    + "<tr><td><b>Ekstensi</b></td><td>:</td><td>" + m.getExtention() + "</td></tr>"
                     + "</table>"
                     + "</body>"
                     + "</html>"
@@ -186,11 +185,6 @@ public class Playlist extends javax.swing.JFrame {
 
         }
     }//GEN-LAST:event_tblPlaylistMouseClicked
-
-    private void clearPlaylistActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearPlaylistActionPerformed
-        // TODO add your handling code here:
-        koleksi.clear();
-    }//GEN-LAST:event_clearPlaylistActionPerformed
 
     /**
      * @param args the command line arguments
